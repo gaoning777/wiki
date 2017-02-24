@@ -149,6 +149,8 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>Disk</li>
+
 <li>Disk Corruption</li>
 
 <li>Docker Registry</li>
@@ -172,6 +174,8 @@ Error message and password prompt
 <li>Systemtap environment</li>
 
 <li>UML material</li>
+
+<li>VirtualBox</li>
 
 <li>YCSB Build Environment Setup</li>
 
@@ -5728,7 +5732,7 @@ Error message and password prompt
 <div modified="20150822040704471" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Latex [[LogCabin Build Environment Setup]] GettingStarted" title="$:/StoryList">
+<div list="Disk VirtualBox [[DTranx Build Environment Setup]] [[LogCabin Build Environment Setup]] GettingStarted" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150709074129453" modified="20150818183328572" title="$:/temp/advancedsearch">
@@ -5748,7 +5752,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150626080040051" modified="20170223205312396" title="$:/temp/NewTagName">
+<div created="20150626080040051" modified="20170224045731800" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div modified="20150709074114500" title="$:/theme">
@@ -5851,6 +5855,12 @@ Error message and password prompt
     }
 }</pre>
 </div>
+<div created="20170224045720249" modified="20170224045837097" tags="format" title="Disk">
+<pre>!!1. How to write to hfsplus in Ubuntu
+```
+sudo apt-get install hfsprogs
+sudo mount -t hfsplus -o force,rw /dev/sdXY /mnt</pre>
+</div>
 <div created="20150817184554477" modified="20150817194422856" tags="disk" title="Disk Corruption">
 <pre>!Install tools
 !! smartmontool
@@ -5911,7 +5921,7 @@ service
 
 </pre>
 </div>
-<div created="20170222174301323" modified="20170223011403278" tags="DTranx enviroment" title="DTranx Build Environment Setup">
+<div created="20170222174301323" modified="20170224001135304" tags="DTranx enviroment" title="DTranx Build Environment Setup">
 <pre>!Set up environment for DTranx project
 &lt;&lt;&lt;
 Pre-requisite
@@ -5920,11 +5930,20 @@ Follow [[LogCabin Build Environment Setup]] steps before continuing the followin
 
 !!1. Basic software
 !!!1.1 kdiff3
-```
 Download the tarball and unarchive
+
+```
 sudo apt-get install kdelibs-bin kdelibs5-dev
 ./configure kde4
+```
 
+!!!1.2 Docker
+
+```
+sudo apt-get install docker.io
+cd DTranx/Test/~IntegTest/Docker
+./run.sh
+```
 
 ```
 
@@ -6022,12 +6041,13 @@ sudo apt-get install texlive-full
 ```
 </pre>
 </div>
-<div created="20150626080149328" modified="20170223211402773" tags="enviroment spectrum" title="LogCabin Build Environment Setup" type="text/vnd.tiddlywiki">
+<div created="20150626080149328" modified="20170224010638231" tags="enviroment spectrum" title="LogCabin Build Environment Setup" type="text/vnd.tiddlywiki">
 <pre>!Set up environment for ~LogCabin project
 &lt;&lt;&lt;
 System: 
 
-:OS: Ubuntu 14.04.2 trusty--&gt; runtime
+:OS: Ubuntu 14.04.1 trusty--&gt; runtime
+:OS: Ubuntu 16.04 --&gt; local docker runtime 
 :OS: Ubuntu 16.04.2 precise--&gt; build
 :OS: Mac is not working because no support for Posix Extension
 &lt;&lt;&lt;
@@ -6475,6 +6495,23 @@ sudo stap-prep
 2. Diagrams
 [[class diagram|http://www.ibm.com/developerworks/rational/library/content/RationalEdge/sep04/bell/]], [[sequence diagram|http://www.ibm.com/developerworks/rational/library/3101.html]]
 </pre>
+</div>
+<div created="20170224001248852" modified="20170224040208657" tags="virtualbox environment" title="VirtualBox">
+<pre>!!1. Mount from Virtualbox to Host
+*Install openssh-server in Host and Virtual Machine.
+*Install sshfs in Host machine
+*Set up port forwarding for Virtual Machine
+**~HostIP: 127.0.0.1
+**~HostPort: 7777
+**~GuestIP: 10.0.2.15
+**~GuestPort: 22
+*Mount/Unmount
+```
+mount: sshfs -o allow_other -p 7777 neal@127.0.0.1:/ ~/NingDev/
+umount: fusermount -u /home/neal/NingDev
+```
+!! Eclipse
+*In order to resolve during pre-processing, simply add NingDev/usr/local/include in Eclipse(Project Property-&gt;C/C++ General-&gt;Paths and Symbols-&gt;includes-&gt;GNU C++)</pre>
 </div>
 <div created="20170222222754863" modified="20170223003714368" tags="YCSB enviroment" title="YCSB Build Environment Setup">
 <pre>!Set up environment for DTranx project
