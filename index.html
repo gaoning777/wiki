@@ -149,6 +149,8 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>DDSBrick</li>
+
 <li>Disk</li>
 
 <li>Disk Corruption</li>
@@ -5726,13 +5728,13 @@ Error message and password prompt
 <div modified="20150818183356375" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Saving</pre>
 </div>
-<div modified="20150819002009292" title="$:/state/tab/moresidebar-401116514">
-<pre>$:/core/ui/MoreSideBar/Tags</pre>
+<div modified="20170227175637431" title="$:/state/tab/moresidebar-401116514">
+<pre>$:/core/ui/MoreSideBar/All</pre>
 </div>
-<div modified="20150822040704471" title="$:/state/tab/sidebar--1835078512">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div modified="20170227175629250" title="$:/state/tab/sidebar--1835078512">
+<pre>$:/core/ui/SideBar/More</pre>
 </div>
-<div list="Disk VirtualBox [[DTranx Build Environment Setup]] [[LogCabin Build Environment Setup]] GettingStarted" title="$:/StoryList">
+<div list="DDSBrick GettingStarted" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150709074129453" modified="20150818183328572" title="$:/temp/advancedsearch">
@@ -5752,7 +5754,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150626080040051" modified="20170224045731800" title="$:/temp/NewTagName">
+<div created="20150626080040051" modified="20170224224209633" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div modified="20150709074114500" title="$:/theme">
@@ -5854,6 +5856,69 @@ Error message and password prompt
         }
     }
 }</pre>
+</div>
+<div created="20170224224138201" modified="20170227175201150" tags="DTranx" title="DDSBrick">
+<pre>!1 Introduction
+DDSBrick is a distributed key value store that supports transactions, snapshot reading and uses repartitioning algorithms to  rebalance data dynamically. On top of DDSBrick, one can build different distributed data structures like BTree, RTree, etc.
+
+!2. Environment
+DDSBrick repository is currently at university of Colorado boulder git repository, [[Git Repository|https://git.cs.colorado.edu/nigo9731/DTranx]]. Follow the steps [[here|DTranx Build Environment Setup]] to set up the build environment.
+
+''Important''
+
+~VirtualBox: ubuntu 16.04 with all build environment setup.
+
+Mac/Linux: In order to do developing in the host machine Ubuntu or Laptop Mac. The following steps should be done:
+
+1. Install Eclipse, Scons
+
+2. Copy /usr/local/include in VirtualBox to Mac. in Ubuntu, simply sshfs mount to local file system and configure the include path in Eclipse
+
+3. Install protoc(~~not necessary~~)
+
+Here's how to install protoc in Ubuntu/Mac
+
+*3.1 Mac
+
+**3.1.1 Download [[macport|https://guide.macports.org/chunked/installing.macports.html]] and install
+
+**3.1.2 Install Protoc
+
+sudo port install protobuf-cpp 
+
+*3.2 Ubuntu
+sudo apt-get install protobuf-compiler
+4. kdiff3
+*4.1 Mac
+Download [[link|http://kdiff3.sourceforge.net/]] and install it. 
+In &quot;$HOME/.gitconfig&quot;, add the following line.
+
+```
+[difftool &quot;kdiff3&quot;]
+    path = /Applications/kdiff3.app/Contents/MacOS/k
+diff3
+```
+
+*4.2 Ubuntu
+Download [[link|http://kdiff3.sourceforge.net/]] and install it. 
+
+!3. Design^^@@color#FF0000; ongoing@@^^
+The following design documents are scattered and not well organized. It should be completed along the way. Dependency section explains what packages and versions do DDSBrick depend on including dependencies of dependencies.
+
+!!3.1 Dependency
+All dependent libraries are dynamic in order to avoid potential bugs rising from different versions of one library that are linked to this project.
+
+!!!Dynamic
+*nvml: persistent memory library.
+*gperftools: google's performance library
+*boost: boost library
+*levelDB: leveldb library
+*metis: repartitioning algorithm library
+*logcabin: replicated state machine library, the following dynamic libraries are dependencies of logcabin project.
+**protobuf: google's serialization library
+**crypto++: cryptography
+**zeromq: network RPC library
+**pthread: thread library</pre>
 </div>
 <div created="20170224045720249" modified="20170224045837097" tags="format" title="Disk">
 <pre>!!1. How to write to hfsplus in Ubuntu
