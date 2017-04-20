@@ -157,11 +157,15 @@ Error message and password prompt
 
 <li>Docker Registry</li>
 
+<li>Draft of 'RStudio'</li>
+
 <li>DTranx Build Environment Setup</li>
 
 <li>GettingStarted</li>
 
 <li>Git Commands</li>
+
+<li>Google Perf</li>
 
 <li>Latex</li>
 
@@ -172,6 +176,12 @@ Error message and password prompt
 <li>Package Management</li>
 
 <li>Performance Tools</li>
+
+<li>RStudio</li>
+
+<li>SSH</li>
+
+<li>Sublime-Text</li>
 
 <li>Systemtap environment</li>
 
@@ -5734,7 +5744,7 @@ Error message and password prompt
 <div modified="20170227175629250" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/More</pre>
 </div>
-<div list="VirtualBox DDSBrick [[DTranx Build Environment Setup]] [[LogCabin Build Environment Setup]]" title="$:/StoryList">
+<div list="[[Draft of 'RStudio']] DDSBrick [[Google Perf]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150709074129453" modified="20150818183328572" title="$:/temp/advancedsearch">
@@ -5754,7 +5764,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150626080040051" modified="20170224224209633" title="$:/temp/NewTagName">
+<div created="20150626080040051" modified="20170324174341464" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div modified="20150709074114500" title="$:/theme">
@@ -5857,7 +5867,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20170224224138201" modified="20170227175201150" tags="DTranx" title="DDSBrick">
+<div created="20170224224138201" modified="20170324174350192" tags="DTranx" title="DDSBrick">
 <pre>!1 Introduction
 DDSBrick is a distributed key value store that supports transactions, snapshot reading and uses repartitioning algorithms to  rebalance data dynamically. On top of DDSBrick, one can build different distributed data structures like BTree, RTree, etc.
 
@@ -5920,7 +5930,7 @@ All dependent libraries are dynamic in order to avoid potential bugs rising from
 **zeromq: network RPC library
 **pthread: thread library</pre>
 </div>
-<div created="20170224045720249" modified="20170224045837097" tags="format" title="Disk">
+<div created="20170224045720249" modified="20170307180319048" tags="format Ubuntu" title="Disk">
 <pre>!!1. How to write to hfsplus in Ubuntu
 ```
 sudo apt-get install hfsprogs
@@ -5985,6 +5995,18 @@ service
 #tag images with hostname:port/name, don't forget the port part. 
 
 </pre>
+</div>
+<div created="20170312013412944" draft.of="RStudio" draft.title="RStudio" modified="20170324174358721" tags="" title="Draft of 'RStudio'">
+<pre>1. How to install R in ubuntu 16.04
+
+```
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/'
+sudo apt-get update
+sudo apt-get install r-base
+```
+
+Then Download Rstudio from [[here|https://www.rstudio.com/products/rstudio/download/]]</pre>
 </div>
 <div created="20170222174301323" modified="20170224001135304" tags="DTranx enviroment" title="DTranx Build Environment Setup">
 <pre>!Set up environment for DTranx project
@@ -6093,6 +6115,10 @@ git push origin +HEAD # force push the local HEAD to remote, note: reset local a
 ! Resource
 * [[git tip of the week|http://alblue.bandlem.com/2011/12/git-tip-of-week-finale.html]]
 * [[atlassian tutorial|https://www.atlassian.com/git/tutorials/]]</pre>
+</div>
+<div created="20170324174326809" modified="20170324174530684" tags="gperf performance" title="Google Perf">
+<pre>!1. How to use?
+Follow steps in gperf project. In doc directory, there's the cpuprofile document, follow the steps there.</pre>
 </div>
 <div created="20170223205302750" modified="20170223210100055" tags="latex" title="Latex">
 <pre>&lt;&lt;&lt;
@@ -6511,6 +6537,34 @@ ioping: This tool lets you monitor I/O latency in real time. It shows disk laten
 Download [[here|https://github.com/koct9i/ioping]]
 </pre>
 </div>
+<div created="20170312013412944" modified="20170312013720332" tags="" title="RStudio">
+<pre>1. How to install R in ubuntu 16.04
+
+```
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/'
+sudo apt-get update
+sudo apt-get install r-base
+```
+
+Then Download Rstudio from [[here|https://www.rstudio.com/products/rstudio/download/]]</pre>
+</div>
+<div created="20170307180138792" modified="20170307180317562" tags="Ubuntu" title="SSH">
+<pre>!!1. How to avoid permission to write to the known_host?
+
+add &quot;~StrictHostKeyChecking no&quot; to /etc/ssh/ssh_config for all users on the computer.</pre>
+</div>
+<div created="20170311190610381" modified="20170311191212569" tags="Ubuntu sublime software" title="Sublime-Text">
+<pre>1. How to edit color scheme?
+
+FIrst, install ~PackageResourceViewer in Sublime. Command palette can be opened with 'Ctrl-Shift-p'.
+
+Second, open ~PackageResourceViewer-&gt;Open Resource-&gt;Color Scheme and choose whatever color scheme you want to change. 
+
+Third, edit the file and customize your color scheme.
+
+Note, This will write a color scheme file in ~/.config/sublime-text-3/Packages/Color Scheme - Default/**.tmTheme. Changing /opt/sublime-text/Packages/Color Scheme* is not going to work.</pre>
+</div>
 <div created="20150907045818757" modified="20150907065911748" tags="" title="Systemtap environment">
 <pre>!OS
 Ubuntu 14.04.2 trusty preinstalled.
@@ -6561,7 +6615,7 @@ sudo stap-prep
 [[class diagram|http://www.ibm.com/developerworks/rational/library/content/RationalEdge/sep04/bell/]], [[sequence diagram|http://www.ibm.com/developerworks/rational/library/3101.html]]
 </pre>
 </div>
-<div created="20170224001248852" modified="20170301015025902" tags="virtualbox environment" title="VirtualBox">
+<div created="20170224001248852" modified="20170301182502686" tags="virtualbox environment eclipse" title="VirtualBox">
 <pre>!!1. Mount from Virtualbox to Host
 *Install openssh-server in Host and Virtual Machine.
 *Install sshfs in Host machine
