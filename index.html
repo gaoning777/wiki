@@ -157,6 +157,8 @@ Error message and password prompt
 
 <li>Docker Registry</li>
 
+<li>Draft of 'DTranx Build Environment Setup'</li>
+
 <li>Draft of 'RStudio'</li>
 
 <li>DTranx Build Environment Setup</li>
@@ -5744,7 +5746,7 @@ Error message and password prompt
 <div modified="20170227175629250" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/More</pre>
 </div>
-<div list="[[Draft of 'RStudio']] DDSBrick [[Google Perf]]" title="$:/StoryList">
+<div list="[[LogCabin Build Environment Setup]] [[Draft of 'DTranx Build Environment Setup']]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150709074129453" modified="20150818183328572" title="$:/temp/advancedsearch">
@@ -5996,6 +5998,62 @@ service
 
 </pre>
 </div>
+<div created="20170222174301323" draft.of="DTranx Build Environment Setup" draft.title="DTranx Build Environment Setup" modified="20170420230548992" tags="DTranx enviroment" title="Draft of 'DTranx Build Environment Setup'">
+<pre>!Set up environment for DTranx project
+&lt;&lt;&lt;
+Pre-requisite
+Follow [[LogCabin Build Environment Setup]] steps before continuing the following setup.
+&lt;&lt;&lt;
+
+!!1. Basic software
+!!!1.1 kdiff3
+Download the tarball and unarchive
+
+```
+sudo apt-get install kdelibs-bin kdelibs5-dev
+./configure kde4
+```
+
+!!!1.2 Docker
+
+```
+sudo apt-get install docker.io
+cd DTranx/Test/~IntegTest/Docker
+./run.sh
+```
+
+```
+
+!!2. Library
+!!!2.1 leveldb
+
+*Download the tarball and unarchive
+*make	
+*cp –R include/leveldb /usr/local/include/
+*cp out-static/libleveldb* /usr/local/lib/
+*cp out-shared/libleveldb* /usr/local/lib/
+
+!!!2.2 metis(5.1.0)
+
+*Download the tarball and unarchive
+*make	
+*sudo make install
+
+!!!2.3 nvml
+*Download the tarball and unarchive
+*make	
+*sudo make install prefix=/usr/local
+
+
+!!!2.4 gperftools
+*Download the tarball and unarchive
+* ./autogen.sh
+* ./configure
+*make
+*sudo make install
+
+!!!2.5 boost(1.53.0)</pre>
+</div>
 <div created="20170312013412944" draft.of="RStudio" draft.title="RStudio" modified="20170324174358721" tags="" title="Draft of 'RStudio'">
 <pre>1. How to install R in ubuntu 16.04
 
@@ -6132,7 +6190,7 @@ sudo apt-get install texlive-full
 ```
 </pre>
 </div>
-<div created="20150626080149328" modified="20170224010638231" tags="enviroment spectrum" title="LogCabin Build Environment Setup" type="text/vnd.tiddlywiki">
+<div created="20150626080149328" modified="20170420230724960" tags="enviroment spectrum" title="LogCabin Build Environment Setup" type="text/vnd.tiddlywiki">
 <pre>!Set up environment for ~LogCabin project
 &lt;&lt;&lt;
 System: 
@@ -6207,8 +6265,7 @@ http://www.sconsolidator.com/update
 *make
 *sudo make install
 *add ''export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/'' to ~/.bashrc(build environment no not necessary, unit test still requires it)
-
-
+* install zeromq c++ customized bindings, cd zeromq; sudo ./Deploy.py
 
 !!!4.2 protobuf(commit f473bb9)
 ''//build, runtime//''
