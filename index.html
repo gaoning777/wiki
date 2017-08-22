@@ -161,7 +161,11 @@ Error message and password prompt
 
 <li>Draft of 'DTranx Build Environment Setup'</li>
 
+<li>Draft of 'New Tiddler'</li>
+
 <li>Draft of 'RStudio'</li>
+
+<li>Draft of 'VirtualBox'</li>
 
 <li>DTranx Build Environment Setup</li>
 
@@ -5732,8 +5736,8 @@ Error message and password prompt
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div modified="20150819010600410" title="$:/state/showeditpreview">
-<pre>yes</pre>
+<div modified="20170822201019046" title="$:/state/showeditpreview">
+<pre>no</pre>
 </div>
 <div modified="20150919210127573" title="$:/state/sidebar">
 <pre>yes</pre>
@@ -5750,7 +5754,7 @@ Error message and password prompt
 <div modified="20170227175629250" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/More</pre>
 </div>
-<div list="[[Ubuntu Software]] GettingStarted" title="$:/StoryList">
+<div list="[[Draft of 'VirtualBox']] [[Draft of 'New Tiddler']]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150709074129453" modified="20150818183328572" title="$:/temp/advancedsearch">
@@ -5770,7 +5774,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150626080040051" modified="20170604003735057" title="$:/temp/NewTagName">
+<div created="20150626080040051" modified="20170822200246887" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div modified="20150709074114500" title="$:/theme">
@@ -6083,6 +6087,34 @@ cd DTranx/Test/~IntegTest/Docker
 
 !!!2.5 boost(1.53.0)</pre>
 </div>
+<div created="20170822200236428" draft.of="New Tiddler" draft.title="Paper Writing" modified="20170822201924947" tags="paper" title="Draft of 'New Tiddler'">
+<pre>!!1. Structure
+* More logical connections between sentences and paragraphs
+* Pay attention to Section organization 
+
+!!2. Presentation
+* Think from readers' view, with limited pre-knowledge
+* More examples for some obscure concepts
+* More explanation for tables and plots
+!!! 2.1 Plot
+* Larger font and thicker lines for better legibility
+* Adjust margins to fit with column width
+* Color adjust and consistency, black/white is great for design plots
+* When export plots from other software tools, check if PDF format is available since EPS, SVG are not always presented appropriately
+* Table captions are usually moved to the top
+
+!!! 2.2 Wording
+* Consistent usage of certain terms that are defined in the paper
+* Avoid informal expressions
+* Remove unnecessary/duplicate-meaning words, such as &quot;in terms of&quot;
+* Pay attention to articles usage. &quot;The&quot; is preferred when a certain object/instance is referred to. No articles are required when an uncountable general kind of thing is referred to
+* Use correct plural forms, such as IDs instead of ID's
+
+!!! Justification
+* Well define the problem domain and reference to other well-known paper on similar topics
+* Make sure all the major decision choices are justified
+</pre>
+</div>
 <div created="20170312013412944" draft.of="RStudio" draft.title="RStudio" modified="20170324174358721" tags="" title="Draft of 'RStudio'">
 <pre>1. How to install R in ubuntu 16.04
 
@@ -6094,6 +6126,35 @@ sudo apt-get install r-base
 ```
 
 Then Download Rstudio from [[here|https://www.rstudio.com/products/rstudio/download/]]</pre>
+</div>
+<div created="20170224001248852" draft.of="VirtualBox" draft.title="VirtualBox" modified="20170822200354169" tags="virtualbox environment eclipse" title="Draft of 'VirtualBox'">
+<pre>!!1. Mount from Virtualbox to Host
+*Install openssh-server in Host and Virtual Machine.
+*Install sshfs in Host machine
+*Set up port forwarding for Virtual Machine
+**~HostIP: 127.0.0.1
+**~HostPort: 7777
+**~GuestIP: 10.0.2.15
+**~GuestPort: 22
+*Mount/Unmount
+```
+mount: sshfs -o allow_other -p 7777 neal@127.0.0.1:/ ~/NingDev/
+umount: fusermount -u /home/neal/NingDev
+```
+!! 2. Eclipse
+*In order to resolve during pre-processing, simply add ~NingDev/usr/local/include in Eclipse(Project Property-&gt;C/C++ General-&gt;Paths and Symbols-&gt;includes-&gt;GNU C++)
+
+''Mac''
+
+In Mac environment, maybe one doesn't have g++-4.9 installed, in order to resolve the header files, add the following path to the Project include path.
+
+*/Users/Ning/~NingDev/usr/include
+*/Users/Ning/~NingDev/usr/lib/gcc/x86_64-linux-gnu/4.9/include
+*/Users/Ning/~NingDev/usr/include/c++/4.9
+*/Users/Ning/~NingDev/usr/include/x86_64-linux-gnu
+*/Users/Ning/~NingDev/usr/include/x86_64-linux-gnu/c++/4.9
+*/Users/Ning/~NingDev/usr/include/c++/4.9/backward
+*/Users/Ning/~NingDev/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed</pre>
 </div>
 <div created="20170222174301323" modified="20170224001135304" tags="DTranx enviroment" title="DTranx Build Environment Setup">
 <pre>!Set up environment for DTranx project
