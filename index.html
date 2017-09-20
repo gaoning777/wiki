@@ -143,6 +143,8 @@ Error message and password prompt
 
 <li>$:/temp/NewTagName</li>
 
+<li>$:/temp/search</li>
+
 <li>$:/theme</li>
 
 <li>$:/themes/tiddlywiki/snowwhite</li>
@@ -161,13 +163,11 @@ Error message and password prompt
 
 <li>Draft of 'DTranx Build Environment Setup'</li>
 
-<li>Draft of 'New Tiddler'</li>
-
 <li>Draft of 'RStudio'</li>
 
-<li>Draft of 'VirtualBox'</li>
-
 <li>DTranx Build Environment Setup</li>
+
+<li>Eclipse</li>
 
 <li>GettingStarted</li>
 
@@ -182,6 +182,8 @@ Error message and password prompt
 <li>Object Oriented Design</li>
 
 <li>Package Management</li>
+
+<li>Paper Writing</li>
 
 <li>Performance Tools</li>
 
@@ -5736,8 +5738,8 @@ Error message and password prompt
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div modified="20170822201019046" title="$:/state/showeditpreview">
-<pre>no</pre>
+<div modified="20170914171813621" title="$:/state/showeditpreview">
+<pre>yes</pre>
 </div>
 <div modified="20150919210127573" title="$:/state/sidebar">
 <pre>yes</pre>
@@ -5751,10 +5753,10 @@ Error message and password prompt
 <div modified="20170702230930506" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/Tags</pre>
 </div>
-<div modified="20170227175629250" title="$:/state/tab/sidebar--1835078512">
-<pre>$:/core/ui/SideBar/More</pre>
+<div modified="20170914171809108" title="$:/state/tab/sidebar--1835078512">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="[[Draft of 'VirtualBox']] [[Draft of 'New Tiddler']]" title="$:/StoryList">
+<div list="[[LogCabin Build Environment Setup]] Eclipse VirtualBox [[Paper Writing]] GettingStarted" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150709074129453" modified="20150818183328572" title="$:/temp/advancedsearch">
@@ -5774,8 +5776,11 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150626080040051" modified="20170822200246887" title="$:/temp/NewTagName">
+<div created="20150626080040051" modified="20170914171902958" title="$:/temp/NewTagName">
 <pre></pre>
+</div>
+<div created="20170914171845516" modified="20170914171955773" title="$:/temp/search">
+<pre>eclipse</pre>
 </div>
 <div modified="20150709074114500" title="$:/theme">
 <pre>$:/themes/tiddlywiki/snowwhite</pre>
@@ -6087,34 +6092,6 @@ cd DTranx/Test/~IntegTest/Docker
 
 !!!2.5 boost(1.53.0)</pre>
 </div>
-<div created="20170822200236428" draft.of="New Tiddler" draft.title="Paper Writing" modified="20170822201924947" tags="paper" title="Draft of 'New Tiddler'">
-<pre>!!1. Structure
-* More logical connections between sentences and paragraphs
-* Pay attention to Section organization 
-
-!!2. Presentation
-* Think from readers' view, with limited pre-knowledge
-* More examples for some obscure concepts
-* More explanation for tables and plots
-!!! 2.1 Plot
-* Larger font and thicker lines for better legibility
-* Adjust margins to fit with column width
-* Color adjust and consistency, black/white is great for design plots
-* When export plots from other software tools, check if PDF format is available since EPS, SVG are not always presented appropriately
-* Table captions are usually moved to the top
-
-!!! 2.2 Wording
-* Consistent usage of certain terms that are defined in the paper
-* Avoid informal expressions
-* Remove unnecessary/duplicate-meaning words, such as &quot;in terms of&quot;
-* Pay attention to articles usage. &quot;The&quot; is preferred when a certain object/instance is referred to. No articles are required when an uncountable general kind of thing is referred to
-* Use correct plural forms, such as IDs instead of ID's
-
-!!! Justification
-* Well define the problem domain and reference to other well-known paper on similar topics
-* Make sure all the major decision choices are justified
-</pre>
-</div>
 <div created="20170312013412944" draft.of="RStudio" draft.title="RStudio" modified="20170324174358721" tags="" title="Draft of 'RStudio'">
 <pre>1. How to install R in ubuntu 16.04
 
@@ -6126,35 +6103,6 @@ sudo apt-get install r-base
 ```
 
 Then Download Rstudio from [[here|https://www.rstudio.com/products/rstudio/download/]]</pre>
-</div>
-<div created="20170224001248852" draft.of="VirtualBox" draft.title="VirtualBox" modified="20170822200354169" tags="virtualbox environment eclipse" title="Draft of 'VirtualBox'">
-<pre>!!1. Mount from Virtualbox to Host
-*Install openssh-server in Host and Virtual Machine.
-*Install sshfs in Host machine
-*Set up port forwarding for Virtual Machine
-**~HostIP: 127.0.0.1
-**~HostPort: 7777
-**~GuestIP: 10.0.2.15
-**~GuestPort: 22
-*Mount/Unmount
-```
-mount: sshfs -o allow_other -p 7777 neal@127.0.0.1:/ ~/NingDev/
-umount: fusermount -u /home/neal/NingDev
-```
-!! 2. Eclipse
-*In order to resolve during pre-processing, simply add ~NingDev/usr/local/include in Eclipse(Project Property-&gt;C/C++ General-&gt;Paths and Symbols-&gt;includes-&gt;GNU C++)
-
-''Mac''
-
-In Mac environment, maybe one doesn't have g++-4.9 installed, in order to resolve the header files, add the following path to the Project include path.
-
-*/Users/Ning/~NingDev/usr/include
-*/Users/Ning/~NingDev/usr/lib/gcc/x86_64-linux-gnu/4.9/include
-*/Users/Ning/~NingDev/usr/include/c++/4.9
-*/Users/Ning/~NingDev/usr/include/x86_64-linux-gnu
-*/Users/Ning/~NingDev/usr/include/x86_64-linux-gnu/c++/4.9
-*/Users/Ning/~NingDev/usr/include/c++/4.9/backward
-*/Users/Ning/~NingDev/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed</pre>
 </div>
 <div created="20170222174301323" modified="20170224001135304" tags="DTranx enviroment" title="DTranx Build Environment Setup">
 <pre>!Set up environment for DTranx project
@@ -6212,6 +6160,14 @@ cd DTranx/Test/~IntegTest/Docker
 
 !!!2.5 boost(1.53.0)
 
+</pre>
+</div>
+<div created="20170914171855709" modified="20170914172833168" tags="eclipse" title="Eclipse">
+<pre>This tiddly covers issues met when working with eclipse software. Other issues might have been addressed at [[Logcabin Build|LogCabin Build Environment Setup]]. The Eclipse version, if not specified, is the Kepler SR2 with CDT by default.
+
+!!1. View
+!!!1.1 How to customize show/hide files?
+At the &quot;Project Explorer&quot; window, click the menu button(downward arrow icon) and then choose &quot;Customize View&quot;.
 </pre>
 </div>
 <div created="20150626080141832" modified="20150626080141832" title="GettingStarted">
@@ -6280,7 +6236,7 @@ sudo apt-get install texlive-full
 ```
 </pre>
 </div>
-<div created="20150626080149328" modified="20170420230724960" tags="enviroment spectrum" title="LogCabin Build Environment Setup" type="text/vnd.tiddlywiki">
+<div created="20150626080149328" modified="20170914172205605" tags="enviroment spectrum" title="LogCabin Build Environment Setup" type="text/vnd.tiddlywiki">
 <pre>!Set up environment for ~LogCabin project
 &lt;&lt;&lt;
 System: 
@@ -6677,6 +6633,34 @@ sudo add-apt-repository ppa:&lt;repository-name&gt;
 ```
 </pre>
 </div>
+<div created="20170822200236428" modified="20170914171806176" tags="paper" title="Paper Writing">
+<pre>!!1. Structure
+* More logical connections between sentences and paragraphs
+* Pay attention to Section organization 
+
+!!2. Presentation
+* Think from readers' view, with limited pre-knowledge
+* More examples for some obscure concepts
+* More explanation for tables and plots
+!!! 2.1 Plot
+* Larger font and thicker lines for better legibility
+* Adjust margins to fit with column width
+* Color adjust and consistency, black/white is great for design plots
+* When export plots from other software tools, check if PDF format is available since EPS, SVG are not always presented appropriately
+* Table captions are usually moved to the top
+
+!!! 2.2 Wording
+* Consistent usage of certain terms that are defined in the paper
+* Avoid informal expressions
+* Remove unnecessary/duplicate-meaning words, such as &quot;in terms of&quot;
+* Pay attention to articles usage. &quot;The&quot; is preferred when a certain object/instance is referred to. No articles are required when an uncountable general kind of thing is referred to
+* Use correct plural forms, such as IDs instead of ID's
+
+!!! Justification
+* Well define the problem domain and reference to other well-known paper on similar topics
+* Make sure all the major decision choices are justified
+</pre>
+</div>
 <div created="20150911232324869" modified="20150911232539230" tags="" title="Performance Tools">
 <pre>!I/O Benchmark
 ioping: This tool lets you monitor I/O latency in real time. It shows disk latency in the same way as ping shows network latency. It uses Makefile so that any platform should be supported.
@@ -6771,7 +6755,7 @@ It supports Chinese input methods like Sogou.</pre>
 [[class diagram|http://www.ibm.com/developerworks/rational/library/content/RationalEdge/sep04/bell/]], [[sequence diagram|http://www.ibm.com/developerworks/rational/library/3101.html]]
 </pre>
 </div>
-<div created="20170224001248852" modified="20170301182502686" tags="virtualbox environment eclipse" title="VirtualBox">
+<div created="20170224001248852" modified="20170914171818511" tags="virtualbox environment eclipse" title="VirtualBox">
 <pre>!!1. Mount from Virtualbox to Host
 *Install openssh-server in Host and Virtual Machine.
 *Install sshfs in Host machine
