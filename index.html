@@ -251,9 +251,13 @@ Error message and password prompt
 
 <li>Docker Registry</li>
 
+<li>Draft of 'Object Oriented Design'</li>
+
 <li>DTranx Build Environment Setup</li>
 
 <li>Eclipse</li>
+
+<li>GDB</li>
 
 <li>GettingStarted</li>
 
@@ -280,6 +284,8 @@ Error message and password prompt
 <li>Sublime-Text</li>
 
 <li>Systemtap environment</li>
+
+<li>Tmux</li>
 
 <li>Ubuntu Software</li>
 
@@ -5842,7 +5848,7 @@ Error message and password prompt
 <div modified="20180423215456609" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="[[C++ Tools]] RStudio [[DTranx Build Environment Setup]] GettingStarted" title="$:/StoryList">
+<div list="GDB [[Draft of 'Object Oriented Design']] Tmux [[C++ Tools]] GettingStarted" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150709074129453" modified="20150818183328572" title="$:/temp/advancedsearch">
@@ -5862,7 +5868,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150626080040051" modified="20180423215507569" title="$:/temp/NewTagName">
+<div created="20150626080040051" modified="20180507222328608" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div author="Zdeněk Jašek" core-version="&gt;=5.0.0" created="20171025203531047" dependents="" description="Česky (Czech Republic)" icon="data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20version%3D%221.0%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22900%22%20height%3D%22600%22%3E%0A%09%3Crect%20width%3D%22900%22%20height%3D%22600%22%20fill%3D%22%23d7141a%22%2F%3E%0A%09%3Crect%20width%3D%22900%22%20height%3D%22300%22%20fill%3D%22%23fff%22%2F%3E%0A%09%3Cpath%20d%3D%22M%20450%2C300%200%2C0%20V%20600%20z%22%20fill%3D%22%2311457e%22%2F%3E%0A%3C%2Fsvg%3E%0A" modified="20171025203531047" name="cs-CZ" original-plugin-type="language" original-tags="" original-title="$:/languages/cs-CZ" original-type="application/json" server-url="http://tiddlywiki.com/library/v5.1.8/index.html" tags="$:/tags/RemoteAssetInfo" title="$:/temp/RemoteAssetInfo/http://tiddlywiki.com/library/v5.1.8/index.html/$:/languages/cs-CZ" type="text/vnd.tiddlywiki" version="5.1.8">
@@ -6084,8 +6090,8 @@ At this point it is largely for experimentation by @zooko.
 <div author="JeremyRuston" core-version="&gt;=5.0.0" created="20171025203531046" dependents="" description="Basic theme" modified="20171025203531046" name="Vanilla" original-plugin-type="theme" original-tags="" original-title="$:/themes/tiddlywiki/vanilla" original-type="application/json" server-url="http://tiddlywiki.com/library/v5.1.8/index.html" tags="$:/tags/RemoteAssetInfo" title="$:/temp/RemoteAssetInfo/http://tiddlywiki.com/library/v5.1.8/index.html/$:/themes/tiddlywiki/vanilla" type="text/vnd.tiddlywiki" version="5.1.8">
 <pre></pre>
 </div>
-<div created="20170914171845516" modified="20180423215459600" title="$:/temp/search">
-<pre></pre>
+<div created="20170914171845516" modified="20180507222249951" title="$:/temp/search">
+<pre>object</pre>
 </div>
 <div created="20171025203530876" modified="20171025203530876" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.8/index.html" url="http://tiddlywiki.com/library/v5.1.8/index.html">
 <pre>loaded</pre>
@@ -6383,6 +6389,223 @@ service
 
 </pre>
 </div>
+<div created="20150818183425104" draft.of="Object Oriented Design" draft.title="Object Oriented Design" modified="20180507223034726" tags="OOD" title="Draft of 'Object Oriented Design'" type="text/vnd.tiddlywiki">
+<pre>!Creational Patterns
+!!Singleton
+*Motivation
+:Only one instance exists. Usually singletons are used for centralized management of internal or external resources and they provide a global point of access to themselves.
+
+
+
+
+
+
+*What
+:The implementation involves a static member of the class, a private constructor, a static public method to return a reference to the static member.
+
+
+
+*Attention
+*#Thread safe singletons need locking on the getInstance method
+*#Usually Protected constructor could be used for subclassing. But one needs to make sure no other classes can instantiate this class because in Java, protected members are accessible from other classes in the same package.
+
+!!Factory
+*Motivation
+*#Create objects without exposing the instantiation logic to the client
+*#Refers to the newly created objects through a common interface
+
+*What
+:A client asks Factory for a new object and uses the products as abstract products without knowing its concrete implementation.
+
+:[img[Image/OODesign/factory_implementation.jpg]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*Attention
+*#If you have many objects of the same base type and you manipulate them mostly cast to abstract types, then you need a factory.
+*#Class registration
+*#*reflection: Factory keeps a Map of Product-ID to Class.
+*#*non-reflection: Factory keeps a Map pf Product-ID to Object. And the concrete product class creates the instance itself.
+*#*abstract factory
+
+
+
+!!Factory Method
+*Motivation
+:Defines an interface for creating objects, but let subclasses to decide which class to instantiate.
+
+
+
+
+*What
+:Factory declares a factoryMethod to create an instance of the concrete product and it may call the inherited method to create an object.
+:[img[Image/OODesign/factory_method_implementation.jpg]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*Attention
+*#It provides a simple way of extending a family of products with minor changes in application code.
+*#Provides DIP principle.
+*#Compared with factory, factory method pattern doesn't require factory code change when adding a new product.
+
+
+!!Abstract Factory
+*Motivation
+:It offers the interface for creating a family of related objects, without explicitly specifying their classes.
+
+
+*What
+:It is a super-factory which creates other factories(Factory of factories).
+:[img[Image/OODesign/abstract-factory-pattern.png]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*Attention
+*#Adding new products to the existing factories is difficult, because the Abstract Factory interface uses a fixed set of products that can be created.
+*#Extending factories can be done by using one Create method for all products and attaching information about the type of products needed.
+
+
+
+!!Builder Pattern
+*Motivation
+:Defines an instance(builder) for creating an object but letting subclasses decide which class to instantiate. It's usually for building complex objects.
+
+
+
+
+*What
+:The Concrete Builder constructs parts of the product. The director constructs and puts together parts of the complex object using the Builder interface. 
+:[img[Image/OODesign/builder-pattern.png]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+*Attention
+:In the case of the Abstract Factory, the client uses the factory's methods to create its own objects. In the Builders case, the Builder class is instructed on how to create the object and then it is asked for it, but the way that the class is put together is up to the Builder class, this detail making the difference between the two patterns.
+
+
+
+!Behaviroal Patterns
+!!Chain of Responsibility
+*Motivation
+:It avoids attaching the sender of a request to its receiver. The objects become parts of a chain and the request is sent from one object to another across the chain until one of the objects will handle it.
+
+
+
+
+*What
+:the Client in need of a request to be handled sends it to the chain of handlers, which are classes that extend the Handler class. Each of the handlers in the chain takes its turn at trying to handle the request it receives from the client. If ~ConcreteHandler i can handle it, then the request is handled, if not it is sent to the handler ~ConcreteHandler i+1, the next one in the chain.
+:[img[Image/OODesign/chain of responsability implementation.gif]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*Attention
+:When implementing the ~CoR pattern a special care should be taken for the request representation. The request is not considered a distinctive part of the ~CoR pattern, but it is still used in all the components of the pattern.
+
+
+
+!!Command Pattern
+*Motivation
+*#Encapsulate a request in an object
+*#Allows the parameterization of clients with different requests
+*#Allows saving the requests in a queue
+
+
+*What
+:The Client asks for a command to be executed. The Invoker takes the command, encapsulates it and places it in a queue, in case there is something else to do first, and the ~ConcreteCommand that is in charge of the requested command, sending its result to the Receiver.
+:[img[Image/OODesign/command_implementation.gif]]
+
+
+
+
+
+
+
+
+
+:for example
+
+:[img[Image/OODesign/command_example_stocks.gif]]
+
+*Attention
+*#The command object decouples the object that invokes the action from the object that performs the action.
+*#The invoker should be aware only about the abstract command class.
+
+
+
+!Glossary
+''DIP principle''
+
+dependency inversion principle. First, High-level modules should not depend on low-level modules. Both should depend on abstractions. Second, Abstractions should not depend on details. Details should depend on abstractions.
+
+''Open/Close Principle''
+
+software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+
+
+
+!Reference
+[[OODesign|http://www.oodesign.com]]
+
+[[DesignPattern|https://sourcemaking.com/design_patterns]]</pre>
+</div>
 <div created="20170222174301323" modified="20180423215448489" tags="DTranx enviroment" title="DTranx Build Environment Setup">
 <pre>!Set up environment for DTranx project
 &lt;&lt;&lt;
@@ -6450,6 +6673,11 @@ If It's not working, right click the project and go to &quot;Properties&quot;. I
 !!2 Indexing
 !!! 2.1 How to exclude source files/directories?
 Right click the project and go to &quot;Properties&quot;. In the &quot;C++ General-&gt;Paths and Symbols&quot;, add a custom filtering policy in the &quot;Source Location&quot; tab. This is especially useful to exclude the Build directory such that source finder will never direct to the codes in the Build directory.</pre>
+</div>
+<div created="20180507222310195" modified="20180507223056732" tags="gdb debug tool" title="GDB">
+<pre>:[img[Image/Tools/GDB1.jpg]]
+
+:[img[Image/Tools/GDB2.jpg]]</pre>
 </div>
 <div created="20150626080141832" modified="20150626080141832" title="GettingStarted">
 <pre>\define lingo-base() $:/language/ControlPanel/Basics/
@@ -6655,7 +6883,7 @@ Reference
 [[Systemtap environment]]
 </pre>
 </div>
-<div created="20150818183425104" modified="20150823030755090" tags="OOD" title="Object Oriented Design" type="text/vnd.tiddlywiki">
+<div created="20150818183425104" modified="20180507222306727" tags="OOD" title="Object Oriented Design" type="text/vnd.tiddlywiki">
 <pre>!Creational Patterns
 !!Singleton
 *Motivation
@@ -7029,6 +7257,52 @@ sudo stap-prep
 
 !Reference
 [[systemtap|https://sourceware.org/systemtap/SystemTap_Beginners_Guide/index.html]]</pre>
+</div>
+<div created="20180507220735850" modified="20180507222109252" tags="tmux Ubuntu" title="Tmux">
+<pre>The following commands are obtained from [[tmux cheatsheet|https://tmuxcheatsheet.com/]].
+
+* Use &quot;ctrl + b&quot; for command mode.
+
+# session
+`ctrl + b $`: rename session  
+
+`ctrl + b d`: detach from session
+
+`tmux ls`: show all sessions
+
+`tmux attach -t mysession`: attach to a session
+
+`ctrl + b (`: move to the previous session
+
+`ctrl + b )`: move to the next session
+
+
+# window
+`ctrl + b c`: create window  
+
+`ctrl + b ,`: rename current window
+
+`ctrl + b &amp;`: close current window
+
+`ctrl + b p`: previous window
+
+`ctrl + b n`: next window
+
+`ctrl + b 0..9`: select window
+
+# pane
+
+`ctrl + b %`: split pane vertically
+
+`ctrl + b &quot;`: split pane horizontally
+
+`ctrl + b arrows`: switch panes
+
+`ctrl + b,  ctrl + arrows`: resize panes
+
+`ctrl + b {`: move panes to the left
+
+`ctrl + b }`: move panes to the right</pre>
 </div>
 <div created="20170702231004551" modified="20170722204505655" tags="Ubuntu software" title="Ubuntu Software">
 <pre>!! 1. PDF Annotator 
